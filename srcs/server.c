@@ -6,7 +6,7 @@
 /*   By: user <mvaldeta@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 19:06:15 by user              #+#    #+#             */
-/*   Updated: 2021/10/29 23:00:09 by user             ###   ########.fr       */
+/*   Updated: 2021/10/30 20:34:01 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,52 +38,46 @@
 
 void my_handler(int signum)
 {
-    static char str[10];;;
-    char *endptr;
-    // str = malloc(9 * sizeof(char));
-   static char c = 0;
+    //static char str[10];
+    static char c = 0;
     static int i = 0;
 
-    // while (i < 8)
-    // {
-        if (signum == SIGUSR1)
-        {
-            str[i]= '1';
-            c += (1 << (7 -i));
-            // printf("Received SIGUSR1!\t%d\n", c);
-            //decode(message);
-        }
-        if (signum == SIGUSR2)
-        {
-            str[i]= '0';
-            // printf("Received SIGUSR2!\n");
-            //decode(message);
-        }
-        i++;
-    // }
-    // str[i] = '\0';
-    // c = strtol(str, (char **)NULL, 2);
-    //printf("c = %s = %c\n", str, c);
-    // printf("str = %s\ti %d\n", str, i);
-    if (i == 8) {
+    if (signum == SIGUSR1)
+    {
+        //write(1, "1", 1);
+        c += (1 << (6 - i));
+    }
+    if(signum == SIGUSR2)
+    {
+        //write(1, "0", 1);
+    }
+    i++;
+
+    if (i == 7)
+    {
         i = 0;
-    write(1, &c, 1);
-    c = 0;
+        write(1, &c, 1);
+        //write(1, "\n",1);
+        c = 0;
     }
 }
 
 int main(void)
 {
     int pid;
+    char sep = "KBLU#############"; 
+    char *pid_out;
 
     pid = getpid();
-    printf("%s...\n", KRED);
+    //write(1, sep, 13);
     printf("pid: %d\n", pid);
-    printf("...\n");
+    //write(1, sep, 13);
+    write(1, "...", 3);
 
-        signal(SIGUSR1, my_handler);
-        signal(SIGUSR2, my_handler);
+    signal(SIGUSR1, my_handler);
+    signal(SIGUSR2, my_handler);
     while (1)
     {
+        pause();
     }
 }

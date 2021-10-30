@@ -6,7 +6,7 @@
 /*   By: user <mvaldeta@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 19:06:15 by user              #+#    #+#             */
-/*   Updated: 2021/10/30 20:34:01 by user             ###   ########.fr       */
+/*   Updated: 2021/10/30 21:03:23 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,15 @@ void my_handler(int signum)
 int main(void)
 {
     int pid;
-    char sep = "KBLU#############"; 
+    char sep[] = "\x1B[34m#############\n"; 
     char *pid_out;
 
+    /* get rid of the last printf */
     pid = getpid();
-    //write(1, sep, 13);
-    printf("pid: %d\n", pid);
-    //write(1, sep, 13);
-    write(1, "...", 3);
+    write(1, sep, 15);
+    printf("\npid:%d\n", pid);
+    write(1, sep, 15);
+    write(1, "\n...", 4);
 
     signal(SIGUSR1, my_handler);
     signal(SIGUSR2, my_handler);

@@ -6,7 +6,7 @@
 /*   By: user <mvaldeta@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 19:06:22 by user              #+#    #+#             */
-/*   Updated: 2021/10/30 20:38:55 by user             ###   ########.fr       */
+/*   Updated: 2021/10/30 21:03:23 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,7 @@ int main(int ac, char **av)
 {
 	(void)ac;
     pid_t pid;
+	/* get rid of atoi */
     pid = atoi(av[1]);
     sender(pid, (av[2]));   
 }

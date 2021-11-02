@@ -29,9 +29,9 @@ Synchronous communication using semaphore
 
 ###### Images
 
-| | |
-|:-------------------------:|:-------------------------:|:-------------------------:|
-|<img src="https://github.com/m4r11/02.minitalk/blob/main/xtra/72.png.crdownload" width="200"> sub here|<img src="https://github.com/m4r11/02.minitalk/blob/main/xtra/How%2BSignals%2BWork%2BProcess%2BSignal%2BGenerated%2BSignal%2BMask%2BSignal%2Bdelivered.jpeg" width="200"> sub here|<img src="https://github.com/m4r11/02.minitalk/blob/main/xtra/Scheme%2Bof%2Bsignal%2Bprocessing.jpeg" width="200"> sub here|
+| 1 | 2 | 3|
+|:-------------------------:|:-------------------------:| :-------------------------:|
+|<img src="https://github.com/m4r11/02.minitalk/blob/main/xtra/72.png.crdownload" width="200"> | <img src="https://github.com/m4r11/02.minitalk/blob/main/xtra/How%2BSignals%2BWork%2BProcess%2BSignal%2BGenerated%2BSignal%2BMask%2BSignal%2Bdelivered.jpeg" width="200"> | <img src="https://github.com/m4r11/02.minitalk/blob/main/xtra/Scheme%2Bof%2Bsignal%2Bprocessing.jpeg" width="200">|
 
 ###### Signal handling 
 

@@ -1,30 +1,30 @@
 <h2 align="center">
-Template Name 🏳️
+Minitalk
 
 </h2>
 <h6 align="center">
-A project template to save time ♾
-version: 0.0
-by: mvaldeta
+The purpose of this project is to code a small data exchange program using  
+UNIX signals.  
+by: mvaldeta  
 </h6>
 
 <h2>
 </h2>
 
-###### Cover image for project: from external web link 
-![IMG_COVER](https://64.media.tumblr.com/8c716d457931de0b15c8115663c439ce/3cdfb2845c5a7db3-f5/s1280x1920/6eb1c2423ac0730a795de3098e6a56a80bf636e9.jpg)
+![IMG_COVER](https://64.media.tumblr.com/71a7f8f06087fc9d1ab8514122913cce/405d958ed3eacd98-da/s1280x1920/b3feb5675935dbd8edaf88cdf73f3596fe7a658b.jpg)
 
-###### Block I 
+###### About signals | Intro
 
 ```
-This is explanation for block one. Showcase project highlights.
-The computer halted on Sunday, June 13, shortly after 4 p.m. EDT.  
-After analyzing the data, the Hubble operations team is investigating whether. 
-a degrading memory module led to the computer halt. The team is preparing to  
-switch to one of several backup modules on Wednesday, June 16.  
-The computer will then be allowed to run for approximately one day to verify  
-that the problem has been solved. The team would then restart all science  
-instruments and return the telescope to normal science operations.
+Linux commands are actually individual commands that are able to combine and transmit data to each other   through inter-process communication mechanisms.  
+Linux provides several mechanisms for communication between processes called IPC (Inter-Process   Communication):  
+Signals handling – Communicate by signal  
+Pipe – Exchange by the pipe mechanism  
+Message Queues – Exchange through message queues  
+Shared Memory – Exchange by shared memory segment  
+Communication via socket  
+Synchronous communication using semaphore  
+
 ```
 
 ###### Images
@@ -33,55 +33,74 @@ instruments and return the telescope to normal science operations.
 |:-------------------------:|:-------------------------:|:-------------------------:|
 |<img src="https://64.media.tumblr.com/c5b04f340576ce5859ac69e6401450e3/6dab6b5c26e26f6c-30/s1280x1920/4b3d1abd358d41def4dbfb5b8d5ae40254d0cc88.jpg" width="200"> sub here|<img src="https://64.media.tumblr.com/33dbe83c6197a3cd6ad4310a0a5486bd/2176a82ead6fd58d-91/s1280x1920/beee5984a9e174ca46131c6196b61cc562744bb4.jpg" width="200"> sub here|<img src="https://64.media.tumblr.com/8da44fb8814ac1482f4a909f99f8ca41/2176a82ead6fd58d-89/s1280x1920/a16611cf91e0ba0ab41823313ff41dc4eb0cf3da.jpg" width="200"> sub here|<img src="https://64.media.tumblr.com/30b98071c89271d8b2de5f8caeb60885/27d8b878f7373bc3-45/s1280x1920/33724b1b0f3bf754bcb9b1613026e853d6c09be1.jpg" width="300"> sub here|
 
-###### Block 2 
+###### Signal handling 
 
 ```
-This is explanation for block two. Talk about the summary section.  
-The payload computer is a NASA Standard Spacecraft Computer-1 (NSSC-1)  
-system built in the 1980s. It is part of the Science Instrument  
-Command and Data Handling module, which was replaced during the  
-last astronaut servicing mission in 2009. The module has various  
-levels of redundancy which can be switched on to serve as the primary  
-system when necessary.
-```
+Signals is one of the oldest methods of interprocess communication used by Unix / Linux systems. They are used to signal asynchronous events for one or more processes. Each signal can have a combination or have a signal handler available. The signal interrupts the processing of the process, forcing the system to switch to calling the signal processor immediately. At the end of signal processing, execution resumes.
+Each signal is defined with an integer in /urs/include/signal.h. A list of system constants can be viewed using the kill –l command. For example :
 
-###### A table of contents
+1) SIGHUP 2) SIGINT 3) SIGQUIT 4) SIGILL 5) SIGTRAP  
+6) SIGABRT 7) SIGBUS 8) SIGFPE 9) SIGKILL 10) SIGUSR1  
+11) SIGSEGV 12) SIGUSR2 13) SIGPIPE 14) SIGALRM 15) SIGTERM  
+16) SIGSTKFLT 17) SIGCHLD 18) SIGCONT 19) SIGSTOP 20) SIGTSTP  
+21) SIGTTIN 22) SIGTTOU 23) SIGURG 24) SIGXCPU 25) SIGXFSZ  
+26) SIGVTALRM 27) SIGPROF 28) SIGWINCH 29) SIGIO 30) SIGPWR  
+31) SIGSYS 34) SIGRTMIN 35) SIGRTMIN+1 36) SIGRTMIN+2 37) SIGRTMIN+3  
+38) SIGRTMIN+4 39) SIGRTMIN+5 40) SIGRTMIN+6 41) SIGRTMIN+7 42) SIGRTMIN+8  
+43) SIGRTMIN+9 44) SIGRTMIN+10 45) SIGRTMIN+11 46) SIGRTMIN+12 47) SIGRTMIN+13  
+48) SIGRTMIN+14 49) SIGRTMIN+15 50) SIGRTMAX-14 51) SIGRTMAX-13 52) SIGRTMAX-12  
+53) SIGRTMAX-11 54) SIGRTMAX-10 55) SIGRTMAX-9 56) SIGRTMAX-8 57) SIGRTMAX-7  
+58) SIGRTMAX-6 59) SIGRTMAX-5 60) SIGRTMAX-4 61) SIGRTMAX-3 62) SIGRTMAX-2  
+63) SIGRTMAX-1 64) SIGRTMAX  
 
-- [Block](#######-Block-I)
-    * [Block](#######-Block-2)
-    * [Block](#######-Block-2)
-    * [Block](#######-Block-2)
-- [Block](#######-Block-I)
-    * [Block](#######-Block-2)
-    * [Block](#######-Block-2)
-    * [Block](#######-Block-2)
-
-###### Block 3 
+In addition, when executing the man 7 signal command,  
+we can see the function as well as the instruction manual of each signal type.    
 
 ```
-This is explanation for block three. 
-The Hubble Space Telescope is deployed on April 25,  
-1990 from the space shuttle Discovery. Avoiding distortions of  
-the atmosphere, Hubble has an unobstructed view peering  
-to planets, stars and galaxies, some more than 13.4 billion  
-light years away. 
-Credits: NASA/Smithsonian Institution/Lockheed Corporation  
+
+###### Ways to send Signals 
+
+```
+From the keyboard
+Ctrl + C : sends INT signal (SIGINT) to the process, interrupt the process immediately.  
+Ctrl + Z : send TSTP signal (SIGTSTP) to process, suspend.  
+Ctrl + / : sends signal ABRT (SIGABRT) to process, immediately terminates process (abort).  
+From the command line  
+The kill command is often used to stop the execution of a process.  
+The kill command can send any signal to a process, but by default it sends signal 15,  
+TERM (which is the end of program). like kill -9  
+ 
 ```
 
-###### A table of bullets
+###### 2 Signals means using a unit of two
 
-- bullet one
-- bullet two
-- bullet three
-- bullet four
+| | | |
+|:-------------------------:|:-------------------------:|:-------------------------:|
+H E L O
+each char is 1 byte | 8 bits
 
-###### Code block I 
+H | E | L | O
+72 |
+68 |
+76 |
+79 |
+01001000|
+01000101|
+01001100|
+01001111|
 
-```c
-static	int	ft_issign(char chr)
-{
-	return (chr == '-' || chr == '+');
-}
+###### get char bit to send: 
+
+```c 
+r = ((message[k] >> i) & 1);
+```
+
+###### transform char bit back into the right position: 
+
+```c 
+c = 00000000
+if (signum == SIGUSR1)
+	c += (1 << (6 - i));
 ```
 
 ###### A table in case you need it 

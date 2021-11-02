@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   server.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: user <mvaldeta@student.42lisboa.com>       +#+  +:+       +#+        */
+/*   By: mvaldeta <mvaldeta@student.42lisboa.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 19:06:15 by user              #+#    #+#             */
-/*   Updated: 2021/11/02 10:46:16 by user             ###   ########.fr       */
+/*   Updated: 2021/11/02 11:26:30 by mvaldeta         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void display(int color, int what)
+void	display(int color, int what)
 {
 	if (color == 1 && what == 0)
 		write(1, KWHT, 5);
@@ -24,11 +24,12 @@ void display(int color, int what)
 		write(1, "\n", 1);
 }
 
-void put_pid(int pid, char *pid_out)
+void	put_pid(int pid, char *pid_out)
 {
-	int aux;
-	int i = 0;
+	int	aux;
+	int	i;
 
+	i = 0;
 	while (pid)
 	{
 		aux = pid % 10;
@@ -43,40 +44,31 @@ void put_pid(int pid, char *pid_out)
 		write(1, &pid_out[i], 1);
 		i -= 1;
 	}
-	return;
+	return ;
 }
 
-void my_handler(int signum)
+void	my_handler(int signum)
 {
-	static char c = 0;
-	static int i = 0;
+	static char	c;
+	static int	i;
 
 	if (signum == SIGUSR1)
-	{
-		//write(1, "1", 1);
 		c += (1 << (6 - i));
-	}
-	if (signum == SIGUSR2)
-	{
-		//write(1, "0", 1);
-	}
 	i++;
-
 	if (i == 7)
 	{
 		i = 0;
 		write(1, &c, 1);
-		//write(1, "\n",1);
 		c = 0;
 	}
 }
 
-int main(void)
+int	main(void)
 {
-	int pid;
-	int aux;
-	int i;
-	char pid_out[5];
+	int		pid;
+	int		aux;
+	int		i;
+	char	pid_out[5];
 
 	i = 0;
 	aux = 0;

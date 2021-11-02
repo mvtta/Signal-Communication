@@ -6,39 +6,48 @@
 /*   By: user <mvaldeta@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/07 19:06:15 by user              #+#    #+#             */
-/*   Updated: 2021/10/30 21:03:23 by user             ###   ########.fr       */
+/*   Updated: 2021/11/01 18:49:08 by user             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* #include "../../includes/minitalk.h" */
+#include "minitalk.h"
 
-#include "/Users/mvaldeta/42/42Cursus/02.minitalk/includes/minitalk.h"
+void display(int color, int what)
+{
+    if (color == 1 && what == 0)
+        write(1, KWHT, 5);
+    if (color == 2)
+        write(1, KCYN, 5);
+    if (what == 1)
+        write(1, SEP, 16);
+    if (what == 2)
+        write(1, "\n", 1);
+}
 
-/*    The sigaction structure is defined as something like:
+void put_pid(int pid, char *pid_out)
+{
+    int aux;
+    int i = 0;
 
-           struct sigaction {
-               void     (*sa_handler)(int);
-               void     (*sa_sigaction)(int, siginfo_t *, void *);
-               sigset_t   sa_mask;
-               int        sa_flags;
-               void     (*sa_restorer)(void);
-           };
-            */
-
-// int sig_sethandler(int sig, void *handler)
-// {
-//     struct sigaction *act;
-//     act = malloc(sizeof(struct sigaction));
-//     act->sa_sigaction = handler;
-//     act->sa_flags = SA_SIGINFO;
-
-//     sigaction(sig, act, NULL);
-//     return (0);
-// }
+    while (pid)
+    {
+        aux = pid % 10;
+        pid = pid / 10;
+        pid_out[i] = aux + '0';
+        i += 1;
+    }
+    i = 5;
+    write(1, "pid : ", 6);
+    while (i > -1)
+    {
+        write(1, &pid_out[i], 1);
+        i -= 1;
+    }
+    return;
+}
 
 void my_handler(int signum)
 {
-    //static char str[10];
     static char c = 0;
     static int i = 0;
 
@@ -47,7 +56,7 @@ void my_handler(int signum)
         //write(1, "1", 1);
         c += (1 << (6 - i));
     }
-    if(signum == SIGUSR2)
+    if (signum == SIGUSR2)
     {
         //write(1, "0", 1);
     }
@@ -65,16 +74,17 @@ void my_handler(int signum)
 int main(void)
 {
     int pid;
-    char sep[] = "\x1B[34m#############\n"; 
-    char *pid_out;
+    int aux;
+    int i;
+    char pid_out[5];
 
-    /* get rid of the last printf */
+    i = 0;
+    aux = 0;
     pid = getpid();
-    write(1, sep, 15);
-    printf("\npid:%d\n", pid);
-    write(1, sep, 15);
-    write(1, "\n...", 4);
-
+    display(2, 1);
+    put_pid(pid, pid_out);
+    display(2, 1);
+    display(1, 0);
     signal(SIGUSR1, my_handler);
     signal(SIGUSR2, my_handler);
     while (1)

@@ -48,11 +48,11 @@ $(SERVER) : $(SERVER_SRCS)
 
 clean :
 	@rm -f client.o server.o
-	@printf "\e[31mclean done✔️\e[0m\n"
+	@printf "\e[31mclean done ✔️\e[0m\n"
 
 fclean : clean
 	@rm -f $(SERVER) $(CLIENT)
-	@printf "\e[31mfclean done✔️\e[0m\n"
+	@printf "\e[31mfclean done ✔️\e[0m\n"
 
 re : fclean all
 

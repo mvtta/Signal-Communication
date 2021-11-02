@@ -29,9 +29,9 @@ Synchronous communication using semaphore
 
 ###### Images
 
-| | | |
+| | |
 |:-------------------------:|:-------------------------:|:-------------------------:|
-|<img src="https://64.media.tumblr.com/c5b04f340576ce5859ac69e6401450e3/6dab6b5c26e26f6c-30/s1280x1920/4b3d1abd358d41def4dbfb5b8d5ae40254d0cc88.jpg" width="200"> sub here|<img src="https://64.media.tumblr.com/33dbe83c6197a3cd6ad4310a0a5486bd/2176a82ead6fd58d-91/s1280x1920/beee5984a9e174ca46131c6196b61cc562744bb4.jpg" width="200"> sub here|<img src="https://64.media.tumblr.com/8da44fb8814ac1482f4a909f99f8ca41/2176a82ead6fd58d-89/s1280x1920/a16611cf91e0ba0ab41823313ff41dc4eb0cf3da.jpg" width="200"> sub here|<img src="https://64.media.tumblr.com/30b98071c89271d8b2de5f8caeb60885/27d8b878f7373bc3-45/s1280x1920/33724b1b0f3bf754bcb9b1613026e853d6c09be1.jpg" width="300"> sub here|
+|<img src="https://github.com/m4r11/02.minitalk/blob/main/xtra/72.png.crdownload" width="200"> sub here|<img src="https://github.com/m4r11/02.minitalk/blob/main/xtra/How%2BSignals%2BWork%2BProcess%2BSignal%2BGenerated%2BSignal%2BMask%2BSignal%2Bdelivered.jpeg" width="200"> sub here|<img src="https://github.com/m4r11/02.minitalk/blob/main/xtra/Scheme%2Bof%2Bsignal%2Bprocessing.jpeg" width="200"> sub here|
 
 ###### Signal handling 
 
@@ -77,12 +77,11 @@ TERM (which is the end of program). like kill -9
 ```
 
 ###### 2 Signals means using a unit of two
-H E L O
+
 each char is 1 byte | 8 bits
 
 | H | E | L | O |
 |:-------------------------:|:-------------------------:|:-------------------------:|:-------------------------:|
-|H | E | L | O | 
 |72 | 68 | 76 | 79 | 
 | 01001000 | 01000101 | 01001100 | 01001111 |
 
